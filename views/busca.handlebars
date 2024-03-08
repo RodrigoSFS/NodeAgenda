@@ -1,0 +1,44 @@
+<div class="container" align="center">
+    <br>
+
+    <a href="/"><button type="button" class="btn btn-dark">INICIO</button></a>
+    <a href="cadastro"><button type="button" class="btn btn-dark">CADASTRO</button></a>
+    <a href="lista"><button type="button" class="btn btn-dark">LISTA</button></a>
+    <a href="lista"><button type="button" class="btn btn-dark">EDITAR</button></a>
+
+</div>
+<br><br>
+
+<h1 align="center">RESULTADO DA BUSCA</h1>
+<br>
+<br>
+
+
+<form action="/busca" method="post" class="form-inline my-2 my-lg-0 pl-3-lg justify-content-center">
+
+    <input class="form-control" type="text" placeholder="Pesquisar" aria-label="Search" name="campo">
+    <button class="btn btn-dark ml-1" type="submit">Buscar</button>
+
+</form>
+</div>
+
+<br>
+<br>
+
+<div class="container row">
+    {{#each contatos}}
+    <div class="container col" style="max-width: 120px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://i.ibb.co/1Lfycc5/contato.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" name="apelido">{{dataValues.nome}} {{dataValues.sobrenome}}</h5>
+                <p class="card-text" name="telefone">telefone: {{dataValues.telefone}}</p>
+                <p class="card-text" name="email">email: {{dataValues.email}}</p>
+                <a href="/apagar/{{dataValues.id}}" class="btn btn-primary bg-danger">Excluir</a>
+                <a href="/editar/{{dataValues.id}}" class="btn btn-primary bg-warning text-dark">Editar</a>
+            </div>
+        </div>
+        <br>
+    </div>
+    {{/each}}
+</div>
